@@ -18,8 +18,15 @@ public:
 	
 	SingleMoney operator*(double x);//右乘；
 	
-	friend SingleMoney operator*(double x,SingleMoney& m);//左乘，但是没实现四则
-														//运算，只有连加减；
+	friend SingleMoney operator*(double x,SingleMoney& m);//左乘，但是没实现四则运算，只有连加减；
+														
+	bool operator<(SingleMoney& m);
+	
+	bool operator>(SingleMoney& m);
+	
+	bool operator<=(SingleMoney& m);
+	
+	bool operator>=(SingleMoney& m);
 	
 	void addCurrencyTypeAmount();//用户添加货币种类；
 

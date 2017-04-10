@@ -1,7 +1,7 @@
 //²âÊÔÎÄ¼ş£»
 #include<iostream>
 #include<string>
-#include"SingleMoney.h"
+#include".../inc/SingleMoney.h"
 using namespace std;
 
 int main()
@@ -14,6 +14,7 @@ int main()
 	d.showSingleMoney();
 	d = a + c - e - f;
 	d.showSingleMoney();
+	cout << (a < c) << endl;
 	//system("pause");
 	return 0;
 }

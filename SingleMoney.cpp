@@ -1,5 +1,5 @@
 //SingleMoney.cpp
-#include"SingleMoney.h"
+#include".../inc/SingleMoney.h"
 #include<iostream>
 double ExchangeRate[1000]{ 100,88.792,689.770,514.677,853.253,6.212,517.418,730.456,0.609,19.947,22.541 };
 string CurrencyType[1000]{ "CNY", "HKD", "USD", "CAD", "GBP", "JPY", "AUD", "EUR", "KRW", "THB", "TWD" };//预设货币类型与汇率；
@@ -32,6 +32,26 @@ SingleMoney SingleMoney::operator*(double x)
 SingleMoney operator*(double x,SingleMoney& m)
 {
 	return m*x;
+}
+
+bool SingleMoney::operator<(SingleMoney& m)
+{
+	return this->SingleMoneyAmount < m.converseCurrency(this->CurrencyTypeNow);
+}
+
+bool SingleMoney::operator>(SingleMoney& m)
+{
+	return this->SingleMoneyAmount > m.converseCurrency(this->CurrencyTypeNow);
+}
+
+bool SingleMoney::operator<=(SingleMoney& m)
+{
+	return this->SingleMoneyAmount <= m.converseCurrency(this->CurrencyTypeNow);
+}
+
+bool SingleMoney::operator>=(SingleMoney& m)
+{
+	return this->SingleMoneyAmount >= m.converseCurrency(this->CurrencyTypeNow);
 }
 
 void SingleMoney::addCurrencyTypeAmount()//一次加一种；
