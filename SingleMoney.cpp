@@ -10,12 +10,29 @@ SingleMoney::SingleMoney(double single_money, string currency_type_now)
 }
 
 
-SingleMoney& SingleMoney:: operator+(SingleMoney& m)
+SingleMoney SingleMoney:: operator+(SingleMoney& m)
 {
-	this->SingleMoneyAmount = this->SingleMoneyAmount + m.converseCurrency(CurrencyTypeNow);
-	return *this;
+	double x = this->SingleMoneyAmount + m.converseCurrency(CurrencyTypeNow);
+	SingleMoney temp(x,this->CurrencyTypeNow);
+	return temp;
 }
 
+SingleMoney SingleMoney::operator-(SingleMoney& m)
+{
+	double x = this->SingleMoneyAmount - m.converseCurrency(CurrencyTypeNow);
+	SingleMoney temp(x,this->CurrencyTypeNow);
+	return temp;
+}
+
+SingleMoney SingleMoney::operator*(double x)
+{
+	return SingleMoney(x*this->SingleMoneyAmount,this->CurrencyTypeNow);
+}
+
+SingleMoney operator*(double x,SingleMoney& m)
+{
+	return m*x;
+}
 
 void SingleMoney::addCurrencyTypeAmount()//一次加一种；
 {
